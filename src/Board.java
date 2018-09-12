@@ -2,9 +2,11 @@ public class Board {
 
     private Box[][] boxes = new Box[3][3];
 
-    public Board(Box[][] boxes){
+    private String[][] vals;
 
-        this.boxes = boxes;
+    public Board(String[][] vals){
+
+        this.vals = vals;
 
     }
 

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Unit {
 
-    private int value;
+    private String value;
     //current value of unit
 
     ArrayList<String> posval = new ArrayList<String>();
@@ -10,7 +10,7 @@ public class Unit {
 
     private String[] row, col;
 
-    public Unit(int value, String[] row, String[] col) {
+    public Unit(String value, String[] row, String[] col) {
 
         this.value = value;
 
@@ -36,10 +36,53 @@ public class Unit {
 
     public void check(){
 
+        for (int i = 0; i < row.length; i++) {
 
+            if(posval.contains(row[i])){
+
+                posval.remove(row[i]);
+
+            }
+
+        }
+        for (int i = 0; i < col.length; i++) {
+
+            if(posval.contains(col[i])){
+
+                posval.remove(col[i]);
+
+            }
+
+        }
+
+        //do box stuff
+
+        if(posval.size() <= 1){
+
+            value = posval.get(0);
+
+        }
 
     }
 
+    public void update(int rc, int pos, String val){
+    //row array = 0, col array = 1
 
+        if(rc == 0){//row
+
+            row[pos] = val;
+
+        }
+        else{//col
+
+            col[pos] = val;
+
+        }
+
+    }
+
+    public String getValue() {
+        return value;
+    }
 
 }

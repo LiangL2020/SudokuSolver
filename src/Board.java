@@ -9,16 +9,16 @@ public class Board {
         this.starter = starter;
 
         //TURN VALS INTO UNITS
-        Unit[][] temp = new Unit[3][3];
-        String[] tempRow = new String[9];
-        String[] tempCol = new String[9];
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 //making 9 boxes per board
 
-                for (int k = 0; k < 3; k++) {
+                Unit[][] temp = new Unit[3][3];
+                String[] tempRow = new String[9];
+                String[] tempCol = new String[9];
 
+                for (int k = 0; k < 3; k++) {
                     for (int l = 0; l < 3; l++) {
                         //making 9 units per box
 
@@ -30,7 +30,7 @@ public class Board {
 
                         }
 
-                        temp[k][l] = new Unit(starter[i*k][j*l], tempRow, tempCol);
+                        temp[k][l] = new Unit(starter[l*3+j][k*3+i], tempRow, tempCol);
 
                     }
                 }
@@ -49,8 +49,8 @@ public class Board {
                     for (int l = 0; l < 3; l++) {
                         System.out.print(boxes[i][j].getUnits()[k][l].getValue());
                     }
-                    System.out.println();
                 }
+                System.out.println();
             }
         }
     }

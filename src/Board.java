@@ -10,6 +10,7 @@ public class Board {
 
         //TURN VALS INTO UNITS
 
+        //makes the board
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 //making 9 boxes per board

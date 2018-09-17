@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class Unit {
 
-    private static String value;
+    private String value;
     //current value of unit
 
-    private static ArrayList<String> posval = new ArrayList<String>();
+    ArrayList<String> posval = new ArrayList<String>();
     //possible values of unit
 
     private String[] row, col;
@@ -66,7 +66,7 @@ public class Unit {
     }
 
     public void update(int rc, int pos, String val){
-    //row array = 0, col array = 1
+        //row array = 0, col array = 1
 
         if(rc == 0){//row
 
@@ -81,12 +81,12 @@ public class Unit {
 
     }
 
-    public static String getValue() {
+    public String getValue() {
         return value;
     }
 
-    public static ArrayList<String> getPosVal(){
-        return posval;
-    }
+//    public static ArrayList<String> getPosVal(){
+//        return posval;
+//    }
 
 }

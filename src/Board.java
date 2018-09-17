@@ -39,6 +39,7 @@ public class Board {
                 boxes[i][j] = new Box(temp);
 
             }
+
         }
 
     }
@@ -48,12 +49,17 @@ public class Board {
             for (int j = 0; j < 3; j++) {
                 for (int k = 0; k < 3; k++) {
                     for (int l = 0; l < 3; l++) {
+
                         System.out.print(boxes[i][k].getUnits()[j][l].getValue() + " ");
+
                     }
                 }
+
                 System.out.println();
+
             }
         }
+
         System.out.println();
         System.out.println();
 

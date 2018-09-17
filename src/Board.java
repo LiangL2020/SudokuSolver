@@ -31,7 +31,7 @@ public class Board {
 
                         }
 
-                        temp[k][l] = new Unit(starter[i*3+k][j*3+l], tempRow, tempCol);
+                        temp[k][l] = new Unit(starter[i*3+k][j*3+l]);
 
                     }
                 }

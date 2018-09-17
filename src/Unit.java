@@ -20,16 +20,16 @@ public class Unit {
 
     }
 
-    public void update(String[] row, String[] col, String[][] box){
+    public void update(String[] row, String[] col, Unit[][] box){
         for(String s: row) {
             posval.remove(s);
         }
         for(String s: col) {
             posval.remove(s);
         }
-        for(String[] ss: box) {
-            for(String s: ss) {
-                posval.remove(s);
+        for(Unit[] ss: box) {
+            for(Unit s: ss) {
+                posval.remove(s.getValue());
             }
         }
         if(posval.size() == 1) {

@@ -44,6 +44,20 @@ public class Board {
 
     }
 
+    public void update() {
+        for(Box[] bb: boxes) {
+            for(Box b: bb) {
+
+                for(Unit[] uu: b.getUnits()) {
+                    for(Unit u: uu) {
+
+                    }
+                }
+
+            }
+        }
+    }
+
     public void printBoard() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {

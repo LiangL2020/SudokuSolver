@@ -30,7 +30,7 @@ public class Board {
 
                         }
 
-                        temp[k][l] = new Unit(starter[l*3+j][k*3+i], tempRow, tempCol);
+                        temp[k][l] = new Unit(starter[i*3+k][j*3+l], tempRow, tempCol);
 
                     }
                 }
@@ -47,12 +47,14 @@ public class Board {
             for (int j = 0; j < 3; j++) {
                 for (int k = 0; k < 3; k++) {
                     for (int l = 0; l < 3; l++) {
-                        System.out.print(boxes[i][j].getUnits()[k][l].getValue());
+                        System.out.print(boxes[i][k].getUnits()[j][l].getValue() + " ");
                     }
                 }
                 System.out.println();
             }
         }
+        System.out.println();
+        System.out.println();
     }
 
 }

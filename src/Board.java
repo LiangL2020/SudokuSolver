@@ -160,7 +160,6 @@ public class Board {
         return true;
     }
 
-    //TODO: finish
     public boolean checkCol(int col){
         int[] check = new int[9];
 
@@ -178,4 +177,22 @@ public class Board {
         return true;
     }
 
+    public boolean checkBox(int row, int col){
+        int[] check = new int[9];
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                String value = boxes[(row + i) / 3][(col + j) / 3].getUnits()[(row + i) % 3][(col + j) % 3].getValue();
+
+                int num = Integer.parseInt(value);
+                check[num - 1]++;
+            }
+        }
+
+        for(int n : check){
+            if(n > 1)
+                return false;
+        }
+        return true;
+    }
 }

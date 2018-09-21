@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Unit {
 
@@ -7,9 +8,9 @@ public class Unit {
 
     ArrayList<String> posval = new ArrayList<String>();
     //possible values of unit
-
+    private HashMap<String, Set> sets;
     public Unit(String value) {
-
+        sets = new HashMap<String, Set>();
         this.value = value;
 
         for (int i = 0; i < 9; i++) {
@@ -20,16 +21,23 @@ public class Unit {
 
     }
 
+    public void addSet(Set set){
+        sets.put(set.getName(), set);
+    }
+
     public void update(String[] row, String[] col, Unit[][] box){
         for(String s: row) {
-            posval.remove(s);
+            if(posval.contains(s))
+                posval.remove(s);
         }
         for(String s: col) {
-            posval.remove(s);
+            if(posval.contains(s))
+                posval.remove(s);
         }
         for(Unit[] ss: box) {
             for(Unit s: ss) {
-                posval.remove(s.getValue());
+                if(posval.contains(s))
+                    posval.remove(s.getValue());
             }
         }
         if(posval.size() == 1) {
@@ -41,7 +49,11 @@ public class Unit {
         return value;
     }
 
-//    public static ArrayList<String> getPosVal(){
+    public HashMap<String, Set> getSets() {
+        return sets;
+    }
+
+    //    public static ArrayList<String> getPosVal(){
 //        return posval;
 //    }
 

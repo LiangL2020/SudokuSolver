@@ -29,6 +29,11 @@ public class Main {
             Board b = new Board(vals);
 
             b.printBoard();
+            for (int i = 0; i < 15; i++) {
+                b.update();
+            }
+
+            b.printBoard();
 
             boards.put(name, b);
 

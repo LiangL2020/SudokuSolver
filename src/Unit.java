@@ -10,13 +10,17 @@ public class Unit {
     //possible values of unit
     private HashMap<String, Set> sets;
     public Unit(String value) {
-        sets = new HashMap<String, Set>();
         this.value = value;
+        sets = new HashMap<String, Set>();
+        if(value.equals("0")){
+            for (int i = 0; i < 9; i++) {
 
-        for (int i = 0; i < 9; i++) {
+                posval.add(String.valueOf(i + 1));
 
-            posval.add(String.valueOf(i + 1));
-
+            }
+        }
+        else{
+            posval.add(value);
         }
 
     }
@@ -25,24 +29,16 @@ public class Unit {
         sets.put(set.getName(), set);
     }
 
-    public void update(String[] row, String[] col, Unit[][] box){
-        for(String s: row) {
-            if(posval.contains(s))
-                posval.remove(s);
-        }
-        for(String s: col) {
-            if(posval.contains(s))
-                posval.remove(s);
-        }
-        for(Unit[] ss: box) {
-            for(Unit s: ss) {
-                if(posval.contains(s))
-                    posval.remove(s.getValue());
-            }
-        }
+    public void update(){
         if(posval.size() == 1) {
             value = posval.get(0);
+            for(String s : sets.keySet()){
+                for(Unit unit : sets.get(s).getUnits()){
+                    unit.removeOption(value);
+                }
+            }
         }
+
     }
 
     public String getValue() {
@@ -51,6 +47,15 @@ public class Unit {
 
     public HashMap<String, Set> getSets() {
         return sets;
+    }
+
+    public void removeOption(String val){
+        int idx = posval.indexOf(val);
+        if(idx != -1){
+            posval.remove(idx);
+            update();
+        }
+
     }
 
     //    public static ArrayList<String> getPosVal(){

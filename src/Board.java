@@ -99,7 +99,11 @@ public class Board {
     }
 
     public void update() {
-
+        for(Unit[] list : units){
+            for(Unit unit : list){
+                unit.update();
+            }
+        }
 
 //        for(Box[] bb: boxes) {
 //            for(Box b: bb) {
@@ -129,24 +133,14 @@ public class Board {
     }
 
     public void printBoard() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                for (int k = 0; k < 3; k++) {
-                    for (int l = 0; l < 3; l++) {
-
-                        System.out.print(boxes[i][k].getUnits()[j][l].getValue() + " ");
-
-                    }
-                }
-
-                System.out.println();
-
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(units[i][j].getValue() + " ");
             }
+            System.out.println();
         }
-
         System.out.println();
         System.out.println();
-
     }
 
     //checks if the numbers are 1-9

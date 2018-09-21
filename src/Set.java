@@ -19,6 +19,29 @@ public class Set {
         }
     }
 
+    public void update() {
+        for (int i = 1; i < 10; i++) {
+            ArrayList<Unit> option = optionsList.get(i);
+            if(option != null) {
+                for (Unit unit : units) {
+                    if(unit.getValue().equals(i + "")){
+                        optionsList.remove(option);
+                    }
+                    else if(!unit.hasOption(i + "")){
+                        option.remove(unit);
+                    }
+                }
+            }
+        }
+
+        for (int i = 1; i < 10; i++) {
+            ArrayList<Unit> option = optionsList.get(i);
+            if(option != null && option.size() == 1){
+                option.get(0).setValue(i + "");
+            }
+        }
+    }
+
     public Unit[] getUnits() {
         return units;
     }

@@ -29,7 +29,7 @@ public class Main {
             Board b = new Board(vals);
 
             b.printBoard();
-
+            b.update();
             b.printBoard();
 
             boards.put(name, b);

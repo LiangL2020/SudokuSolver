@@ -29,6 +29,10 @@ public class Unit {
         sets.put(set.getName(), set);
     }
 
+    public boolean hasOption(String value) {
+        return !(posval.indexOf(value) == -1);
+    }
+
     public void update(){
         if(posval.size() == 1) {
             value = posval.get(0);
@@ -36,6 +40,7 @@ public class Unit {
                 for(Unit unit : sets.get(s).getUnits()){
                     unit.removeOption(value);
                 }
+                sets.get(s).update();
             }
         }
 
@@ -43,6 +48,14 @@ public class Unit {
 
     public String getValue() {
         return value;
+    }
+
+    public void setValue(String val){
+        if(value.equals ("0")) {
+            posval = new ArrayList<String>();
+            posval.add(val);
+            update();
+        }
     }
 
     public HashMap<String, Set> getSets() {

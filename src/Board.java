@@ -149,4 +149,39 @@ public class Board {
 
     }
 
+    //checks if the numbers are 1-9
+    public boolean checkRow(int row){
+        int[] check = new int[9]; //counter...check[0] counts the number of 1's in row, [1] counts 2's....
+
+        for (int j = 0; j < check.length; j++) {
+            String value = boxes[row/3][j/3].getUnits()[row%3][j%3].getValue();
+
+            int num = Integer.parseInt(value);
+            check[num-1]++;
+        }
+
+        for(int n : check)
+            if(n > 1)
+                return false;
+        return true;
+    }
+
+    //TODO: finish
+    public boolean checkCol(int col){
+        int[] check = new int[9];
+
+        for (int i = 0; i < 9; i++) {
+            String value = boxes[i/3][col/3].getUnits()[i%3][col%3].getValue();
+
+            int num = Integer.parseInt(value);
+            check[num-1]++;
+        }
+
+        for(int n : check){
+            if(n > 1)
+                return false;
+        }
+        return true;
+    }
+
 }

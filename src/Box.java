@@ -8,7 +8,6 @@ public class Box {
 
     }
 
-
     public Unit[][] getUnits() {
         return units;
     }

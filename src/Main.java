@@ -28,10 +28,14 @@ public class Main {
 
             Board b = new Board(vals);
 
+            System.out.println("Puzzle: " + name);
+            System.out.println("Initial:");
             b.printBoard();
             b.update();
+            System.out.println("Solved:");
             b.printBoard();
 
+            //this isnt really necessary
             boards.put(name, b);
 
         }

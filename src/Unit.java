@@ -4,9 +4,10 @@ import java.util.HashMap;
 public class Unit {
 
     private String value;
+    private int row, col;
     //current value of unit
-
-    ArrayList<String> posval = new ArrayList<String>();
+    private boolean pointed = false;
+    public ArrayList<String> posval = new ArrayList<String>();
     //possible values of unit
     private HashMap<String, Set> sets;
     public Unit(String value) {
@@ -23,6 +24,10 @@ public class Unit {
             posval.add(value);
         }
 
+        if(posval.size() == 2) {
+            pointed = true;
+        }
+
     }
 
     public void addSet(Set set){
@@ -35,11 +40,18 @@ public class Unit {
 
     public void update(){
         if(posval.size() == 1) {
+            pointed = false;
             value = posval.get(0);
             for(String s : sets.keySet()){
                 for(Unit unit : sets.get(s).getUnits()){
                     unit.removeOption(value);
                 }
+                sets.get(s).update();
+            }
+        }
+        if(posval.size() == 2) {
+            pointed = true;
+            for(String s : sets.keySet()){
                 sets.get(s).update();
             }
         }
@@ -69,6 +81,14 @@ public class Unit {
             update();
         }
 
+    }
+
+    public boolean isPointed() {
+        return pointed;
+    }
+
+    public void setPointed(boolean pointed) {
+        this.pointed = pointed;
     }
 
     //    public static ArrayList<String> getPosVal(){
